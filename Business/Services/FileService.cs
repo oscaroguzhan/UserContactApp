@@ -4,12 +4,12 @@ using Business.Interfaces;
 
 namespace Business.Services;
 
-public class FileService(string directoryPath, string filePath) : IFileService
+public  class FileService(string directoryPath, string fileName ) : IFileService
 {
     private readonly string _directoryPath = directoryPath;
-    private readonly string _filePath = filePath;
+    private readonly string _filePath = Path.Combine(directoryPath, fileName);
 
-    public string ReadContentFromFile()
+    public virtual string ReadContentFromFile()
     {
         if (File.Exists(_filePath))
         {
@@ -19,7 +19,7 @@ public class FileService(string directoryPath, string filePath) : IFileService
         return string.Empty;
     }
 
-    public bool SaveContentToFile(string content)
+    public virtual bool SaveContentToFile(string content)
     {
         
         try

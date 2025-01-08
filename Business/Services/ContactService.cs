@@ -10,7 +10,8 @@ namespace Business.Services;
 
 public class ContactService(IFileService fileService) : IContactService
 {
-    private readonly IFileService _fileService = fileService;
+    private readonly IFileService _fileService = fileService ;
+    
     private List<Contact> _contacts = [];
 
     public IEnumerable<Contact> GetAll()
