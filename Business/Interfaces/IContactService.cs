@@ -8,5 +8,5 @@ public interface IContactService
 {
     bool Save(ContactRegistrationForm form);
     IEnumerable<Contact> GetAll();
-
+    
 }

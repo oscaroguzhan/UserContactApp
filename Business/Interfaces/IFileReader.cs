@@ -2,7 +2,7 @@ using System;
 
 namespace Business.Interfaces;
 
-public interface IFIleReader
+public interface IFileReader
 {
     string ReadContentFromFile();
 

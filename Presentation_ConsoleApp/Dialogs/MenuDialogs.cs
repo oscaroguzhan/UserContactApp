@@ -40,6 +40,7 @@ public class MenuDialogs(IContactService contactService)
 
     private void AddNewContact()
     {
+        
          // create an instance of Contact 
         var form = ContactFactory.CreateContactRegistrationForm();
         Console.Clear();
@@ -47,12 +48,35 @@ public class MenuDialogs(IContactService contactService)
         Console.WriteLine();
         Console.Write("Enter first name: ");
         form.FirstName = Console.ReadLine()!;
+        while (string.IsNullOrWhiteSpace(form.FirstName))
+        {
+            Console.WriteLine("First name cannot be empty...");
+            Console.Write("Please enter a valid first name: ");
+            form.FirstName = Console.ReadLine()!;
+        }
+        Console.WriteLine();
         Console.Write("Enter last name: ");
-        form.LastName = Console.ReadLine()!;
+        form.LastName= Console.ReadLine()!;
+        while (string.IsNullOrWhiteSpace(form.LastName))
+        {
+            Console.Write("Last name cannot be empty...");
+            Console.Write("Please enter a valid last name: ");
+            form.LastName= Console.ReadLine()!;
+        }
+        Console.WriteLine();
         Console.Write("Enter email: ");
         form.Email = Console.ReadLine()!;
+        
         Console.Write("Enter phone number: ");
         form.PhoneNumber = Console.ReadLine()!;
+
+        while (!long.TryParse(form.PhoneNumber, out _))
+        {
+            Console.WriteLine("Phone number must contain only numbers...");
+            Console.Write("Please enter a valid phone number: ");
+            form.PhoneNumber = Console.ReadLine()!;
+        }
+        Console.WriteLine();
         Console.Write("Enter postal code: ");
         form.PostalCode = Console.ReadLine()!;
         Console.Write("Enter city: ");

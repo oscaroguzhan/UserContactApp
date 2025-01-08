@@ -1,7 +1,7 @@
-
+// 
 namespace Business.Interfaces;
 
-public interface IFileService: IFileWriter, IFIleReader
+public interface IFileService: IFileWriter, IFileReader
 {  
     
 }
