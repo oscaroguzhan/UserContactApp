@@ -8,6 +8,9 @@ public  class FileService(string directoryPath, string fileName ) : IFileService
 {
     private readonly string _directoryPath = directoryPath;
     private readonly string _filePath = Path.Combine(directoryPath, fileName);
+    private string v;
+
+
 
     public virtual string ReadContentFromFile()
     {
@@ -16,7 +19,7 @@ public  class FileService(string directoryPath, string fileName ) : IFileService
             return File.ReadAllText(_filePath);
         }
 
-        return string.Empty;
+        return null!;
     }
 
     public virtual bool SaveContentToFile(string content)
